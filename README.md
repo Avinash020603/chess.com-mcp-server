@@ -1,49 +1,48 @@
-<b>Chess.com MCP Server
-A Model Context Protocol (MCP) server that integrates with the Chess.com Public API. This server allows AI agents (like Claude Desktop) to fetch real-time player profiles, game statistics, and current active games directly from Chess.com.
+# ♟️ Chess.com MCP Server
 
-Features
--Player Profiles: Fetch public data including avatar, country, and join date.
+A **Model Context Protocol (MCP) server** that integrates with the **Chess.com Public API**, enabling AI agents (such as **Claude Desktop**) to fetch real-time chess data including player profiles, ratings, and active games.
 
--Detailed Stats: Access ratings for Blitz, Bullet, Rapid, and Daily chess.
+This project is designed for **fast, isolated execution** using the **`uv` package manager** and follows MCP standards for seamless AI-tool integration.
 
--Active Games: Retrieve a list of games the player is currently participating in.
+---
 
--Seamless Integration: Designed to work with the uv package manager for fast, isolated execution.
+## 🚀 Features
 
-<b>Prerequisites
-a.Python 3.10+
-b.uv package manager installed.
-c.Claude Desktop (or any other MCP-compatible host).
+- **Player Profiles**
+  - Fetch public user data such as avatar, country, username, and join date.
 
-Installation & Setup
-1. Clone the Repository
+- **Detailed Player Statistics**
+  - Access ratings and stats for:
+    - ♟️ Blitz  
+    - ⚡ Bullet  
+    - 🕒 Rapid  
+    - 📅 Daily
 
+- **Active Games**
+  - Retrieve a list of games the player is currently playing on Chess.com.
+
+- **MCP-Compatible**
+  - Works seamlessly with Claude Desktop or any MCP-compatible host.
+
+- **Fast & Isolated Execution**
+  - Uses the `uv` package manager for reproducible and dependency-safe runs.
+
+---
+
+## 🛠️ Prerequisites
+
+Ensure you have the following installed:
+
+- **Python 3.10 or higher**
+- **`uv` package manager**
+- **Claude Desktop** (or any other MCP-compatible client)
+
+---
+
+## 📦 Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
 git clone https://github.com/your-username/MCP-build-chess-stats.git
 cd MCP-build-chess-stats
-
-2. Configure Your Contact Info
-Chess.com requires a User-Agent with contact information to avoid 403 Forbidden errors. Open src/chess/chess_api.py and update the headers:
-
-headers = {
-    "User-Agent": "MCP-Chess-Stats-Bot/1.0 (your-email@example.com)"
-}
-
-3. Add to Claude Desktop
-Add the following configuration to your claude_desktop_config.json (typically found in %AppData%\Claude\ on Windows):
-
-JSON
-{
-  "mcpServers": {
-    "Chess.com": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "D:/MCP/MCP-build-chess-stats",
-        "run",
-        "chess"
-      ]
-    }
-  }
-}
-
-Note: Ensure the path matches the location where you cloned the repository.
